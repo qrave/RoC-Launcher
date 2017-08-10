@@ -85,8 +85,8 @@ home.addEventListener('click', event => {
     settings.className = "button";
 });
 
-websiteBtn.addEventListener('click', event => shell.openExternal("http://relicsofcorbantis.com/"));
-discordBtn.addEventListener('click', event => shell.openExternal("https://discordapp.com/channels/126343966848188417/289458004745650176"));
+websiteBtn.addEventListener('click', event => shell.openExternal("http://swginfinity.com/"));
+discordBtn.addEventListener('click', event => shell.openExternal("https://discordapp.com/channels/328626951315259395/328626951315259395"));
 
 browseBtn.addEventListener('click', function (event) {
     ipc.send('open-directory-dialog', 'selected-directory');

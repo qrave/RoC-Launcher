@@ -8,12 +8,12 @@ module.exports.getManifest = function(mods, fullScan, emuPath, checkFiles) {
     if (fullScan || emuPath && !fs.existsSync(path.join(emuPath, "swgemu.cfg"))) {
         //force download with size:0, md5:""
         files = files.concat([
-            {name:"swgemu.cfg", size:0, md5:"", url:"http://www.launchpad2.net/SWGEmu/swgemu.cfg"},
-            {name:"swgemu_machineoptions.iff", size:0, md5:"", url:"http://www.launchpad2.net/SWGEmu/swgemu_machineoptions.iff"},
-            {name:"swgemu_preload.cfg", size:0, md5:"", url:"http://www.launchpad2.net/SWGEmu/swgemu_preload.cfg"}
+            {name:"swgemu.cfg", size:0, md5:"", url:"http://www.swginfinity.com/updates/swgemu.cfg"},
+            {name:"swgemu_machineoptions.iff", size:0, md5:"", url:"http://www.swginfinity.com/updates/swgemu_machineoptions.iff"},
+            {name:"swgemu_preload.cfg", size:0, md5:"", url:"http://www.swginfinity.com/updates/swgemu_preload.cfg"}
         ]);
     }
-    request({url:"https://github.com/dpwhittaker/RoC-Launcher/releases/download/Assets/manifest.json", json:true}, function(err, response, body) {
+    request({url:"http://www.swginfinity.com/updates/manifest.json", json:true}, function(err, response, body) {
         if (err) return console.error(err);
 
         var allmods = [];

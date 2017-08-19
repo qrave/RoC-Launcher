@@ -33,8 +33,8 @@ const gamesettingsBtn = document.getElementById('gamesettings');
 const versionDiv = document.getElementById('version');
 versionDiv.innerHTML = package.version;
 
-const configFile = require('os').homedir() + '/RoC-Launcher.json';
-var config = {folder: 'C:\\SWGRelics'};
+const configFile = require('os').homedir() + '/swg-infinity.json';
+var config = {folder: 'C:\\SWGInfinity'};
 if (fs.existsSync(configFile))
     config = JSON.parse(fs.readFileSync(configFile));
 folderBox.value = config.folder;
@@ -196,7 +196,7 @@ fullscanBtn.addEventListener('click', function(event) {
     install.install(config.folder, config.folder, config.mods, true);
 });
 
-if (fs.existsSync(path.join(config.folder, 'bottom.tre'))) {
+if (fs.existsSync(path.join(config.folder, 'infinity_00.tre'))) {
     disableAll();
     install.install(config.folder, config.folder, config.mods);
 } else {

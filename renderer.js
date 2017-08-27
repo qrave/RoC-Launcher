@@ -29,6 +29,9 @@ const updates = document.getElementById('updates');
 const minBtn = document.getElementById('minimize');
 const maxBtn = document.getElementById('maximize');
 const closeBtn = document.getElementById('close');
+const ramSel = document.getElementById('ram');
+const fpsSel = document.getElementById('fps');
+const zoomSel = document.getElementById('zoom');
 const gamesettingsBtn = document.getElementById('gamesettings');
 const versionDiv = document.getElementById('version');
 versionDiv.innerHTML = package.version;
@@ -38,10 +41,27 @@ var config = {folder: 'C:\\SWGInfinity'};
 if (fs.existsSync(configFile))
     config = JSON.parse(fs.readFileSync(configFile));
 folderBox.value = config.folder;
+var needSave = false;
 if (!config.mods) {
     config.mods = [];
-    saveConfig();
+    needSave = true;
 }
+if (!config.fps) {
+    config.fps = 30;
+    needSave = true;
+}
+fpsSel.value = config.fps;
+if (!config.ram) {
+    config.ram = 750;
+    needSave = true;
+}
+ramSel.value = config.ram;
+if (!config.zoom) {
+    config.zoom = 1;
+    needSave = true;
+}
+zoomSel.value = config.zoom;
+if (needSave) saveConfig();
 
 minBtn.addEventListener('click', event => remote.getCurrentWindow().minimize());
 maxBtn.addEventListener('click', event => {

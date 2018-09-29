@@ -12,6 +12,7 @@ const playBtn = document.getElementById('play');
 const settingsBtn = document.getElementById('settings');
 const websiteBtn = document.getElementById('web');
 const discordBtn = document.getElementById('disc');
+const donateBtn = document.getElementById('donate');
 
 const rightContent = document.getElementById('rightcontent');
 const rightSettings = document.getElementById('rightsettings');
@@ -107,6 +108,7 @@ home.addEventListener('click', event => {
 
 websiteBtn.addEventListener('click', event => shell.openExternal("http://www.swginfinity.com/"));
 discordBtn.addEventListener('click', event => shell.openExternal("https://discordapp.com/channels/328626951315259395/328626951315259395"));
+donateBtn.addEventListener(' click ', event => shell.openExternal("https://www.swginfinity.com/donate/"));
 
 browseBtn.addEventListener('click', function (event) {
     ipc.send('open-directory-dialog', 'selected-directory');
@@ -124,7 +126,7 @@ ipc.on('selected-directory', function (event, path) {
 });
 
 installBtn.addEventListener('click', function(event) {
-    if (installBtn.disabled = false) return;
+    if (installBtn.disabled == false) return;
     installBtn.disabled = true;
     ipc.send('open-directory-dialog', 'install-selected');
 });

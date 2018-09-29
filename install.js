@@ -20,7 +20,7 @@ module.exports.getManifest = function(mods, fullScan, emuPath, checkFiles) {
         for (var mod in body) if (mod != 'required') allmods.push(mod);
         if (module.exports.modList) module.exports.modList(allmods);
         files = unionByName(files, body.required);
-        for (var mod of mods) files = unionByName(files, body[mod] || []);
+        for (var i of mods) files = unionByName(files, body[i] || []);
         if (checkFiles) checkFiles(files);
     });
 }
@@ -29,8 +29,8 @@ function unionByName(a, b) {
     var lookup = {};
     for (var i of b) lookup[i.name] = true;
     var r = [];
-    for (var i of a) if (!lookup[i.name]) r.push(i);
-    for (var i of b) r.push(i);
+    for (var x of a) if (!lookup[x.name]) r.push(x);
+    for (var z of b) r.push(z);
     return r;
 }
 
@@ -158,7 +158,7 @@ if (process.send) {
                 res.on('end', complete);
         })
         .pipe(file);
-    };
+    }
 
     function unzip(dest, complete) {
         process.send('unzipping');

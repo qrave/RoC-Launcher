@@ -126,7 +126,7 @@ ipc.on('selected-directory', function (event, path) {
 });
 
 installBtn.addEventListener('click', function(event) {
-    if (installBtn.disabled = false) return;
+    if (installBtn.disabled == false) return;
     installBtn.disabled = true;
     ipc.send('open-directory-dialog', 'install-selected');
 });
